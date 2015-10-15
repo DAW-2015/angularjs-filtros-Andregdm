@@ -1,5 +1,15 @@
 var app = angular.module('FuncionariosApp', []);
 
+app.filter('toReal', function() {
+    return function (text) {
+    var sal = text.toString();
+    sal = sal.replace(",", "%");
+    sal = sal.replace(".", ", ");
+    sal = sal.replace("%", ".");
+    return sal;
+    }
+});
+
 app.controller('FuncionariosController', function() {
 
   this.employees = [
