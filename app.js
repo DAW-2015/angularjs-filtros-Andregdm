@@ -17,6 +17,18 @@ app.filter('filtroCPF', function() {
     }
 });
 
+app.filter('telefone', function() {
+    return function (text) {
+    var tel = text.toString();
+    sal = tel.split("");
+    var ddd = sal[0] + sal[1];
+    var p1 = sal[2] + sal[3] + sal[4] + sal[5];
+    var p2 = sal[6] + sal[7] + sal[8] + sal[9];
+    tel = "(" + ddd + ") " + p1 + "-" + p2;
+    return tel;
+    }
+});
+
 app.filter('toReal', function() {
     return function (text) {
     var sal = text.toString();

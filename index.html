@@ -42,7 +42,7 @@
               {{employee.email}}
             </td>
             <td>
-              {{employee.phone}}
+              {{employee.phone | telefone}}
             </td>
             <td>
               {{employee.salary | currency: "R$ " | toReal}}
