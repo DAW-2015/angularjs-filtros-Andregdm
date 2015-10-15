@@ -1,5 +1,22 @@
 var app = angular.module('FuncionariosApp', []);
 
+app.filter('filtroCPF', function() {
+    return function (text) {
+    var cpf = text.toString();
+    sal = cpf.split("");
+    if (sal.length < 11) {
+        cpf = "0" + text.toString();
+        sal = cpf.split("");
+    }
+    var cpf1 = sal[0] + sal[1] + sal[2];
+    var cpf2 = sal[3] + sal[4] + sal[5];
+    var cpf3 = sal[6] + sal[7] + sal[8];
+    var cpf4 = sal[9] + sal[10];
+    cpf = cpf1 + "." + cpf2 + "." + cpf3 + "-" + cpf4;
+    return cpf;
+    }
+});
+
 app.filter('toReal', function() {
     return function (text) {
     var sal = text.toString();
